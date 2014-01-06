@@ -7,27 +7,32 @@ A Symphony 2 bundle that adds simple blog-like feature. Used to demostrate how t
 
 1. Add it do `composer.json` file:
 
-```
-{
-    ...,
-    "require": {
+    ```
+    {
         ...,
-        "kikoval/simple-blog-bundle": "dev-master"
+        "require": {
+            ...,
+            "kikoval/simple-blog-bundle": "dev-master"
+        }
+        ...,
+        "repositories: {
+            "type": "git",
+            "url": "https://github.com/kikoval/simple-blog-bundle.git"
+        }
     }
-}
-```
+    ```
 
 2. Update the dependency:
 
-``` bash
-$ php composer.phar update kikoval/simple-blog-bundle
-```
+    ``` bash
+    $ php composer.phar update kikoval/simple-blog-bundle
+    ```
 
-or update all dependencies
-
-``` bash
-$ php composer.phar update
-```
+    or update all dependencies
+    
+    ``` bash
+    $ php composer.phar update
+    ```
 
 ## Enable the bundle
 
