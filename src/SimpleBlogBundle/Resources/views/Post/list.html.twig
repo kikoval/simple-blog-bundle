@@ -1,0 +1,8 @@
+{% for post in posts %}
+<article class="post_excerpt">
+    <h1><a href="{{ path('blog_post_view', {'id': post.id}) }}">{{ post.title }}</a></h1>
+    <p>{{ post.content }}</p>
+</article>
+{% endfor %}
+
+<p><a href="{{ path('blog_post_new_form') }}">add new post</a></p>
