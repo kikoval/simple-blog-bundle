@@ -59,8 +59,16 @@ class PostController extends Controller
             throw $this->createNotFoundException('No post found for id!');
         }
 
+        $delete_form = $this->createFormBuilder($post)
+        ->setMethod('DELETE')
+        ->setAction($this->generateUrl('blog_post_delete',
+            array('id' => $post->getId())))
+            ->add('delete', 'submit')
+            ->getForm();
+
+
         return $this->render('SimpleBlogBundle:Post:view.html.twig',
-            array('post' => $post)
+            array('post' => $post, 'delete_form' => $delete_form->createView())
         );
     }
 
@@ -117,10 +125,10 @@ class PostController extends Controller
 
     public function deleteAction($id, Request $request)
     {
-        $is_delete = $request->get('_method') == "delete";
+        $is_delete = $request->getMethod() == "DELETE";
 
         if (!$is_delete) {
-            return $this->redirect($this->generateUrl('blog_posts_list'));
+            return $this->redirect($this->generateUrl('blog_home'));
         }
 
         $post = $this->getDoctrine()

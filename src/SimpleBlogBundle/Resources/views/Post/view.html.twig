@@ -1,4 +1,10 @@
 <article class="post">
-    <h1>{{ post.title }} (<a href="{{ path('blog_post_edit_form', {'id': post.id}) }}">edit</a>)</h1>
+    <h1>{{ post.title }}</h1>
     <div class="content">{{ post.content }}</div>
+    <footer>
+        <ul>
+            <li><a href="{{ path('blog_post_edit_form', {'id': post.id}) }}">edit</a></li>
+            <li>{{ form(delete_form) }}</<li>
+        </ul>
+    </footer>
 </article>
